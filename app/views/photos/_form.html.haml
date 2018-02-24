@@ -1,0 +1,14 @@
+.row
+  .large-9.columns
+    = simple_form_for(@photo, :html => {:multipart => true }) do |f|
+      = f.error_notification
+
+      .form-inputs
+        = f.input :name
+        = f.file_field :image
+        %p or
+        = f.input :remote_image_url
+        = f.input :public
+
+      .form-actions
+        = f.submit  "save", class: :button

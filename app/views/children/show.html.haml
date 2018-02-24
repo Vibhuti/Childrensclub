@@ -1,0 +1,47 @@
+.row
+  .large-5.columns
+    %h2
+      = @child.first_name + " " + @child.last_name
+    %p
+      %b Parent Name
+      = User.find(@child.user_id).name
+    -#%p
+    -#  %b Age:
+    -#  = @child.age || "Years"
+    %p
+      %b Date of Birth
+      = @child.dob
+    %p
+      %b Allergies:
+      - if @child.allergies.nil?
+        = @child.allergies
+      - else
+        %span none
+  .large-7.columns
+    %br
+    %h3 Weekly Reports and Messages
+    - Message.all.where(:parent_id => @child.parent_id).each do |m|
+      %p
+        = raw m.content
+      %p.right
+        = time_ago_in_words(m.created_at, Time.now) + " ago"
+      %hr
+
+- if current_user && current_user.admin?
+  .row
+    .large-12.cols
+      %h1 New message
+
+      = simple_form_for [@user, @message] do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.input :title
+          = f.input :content, :as => :ckeditor
+          = f.hidden_field :parent_id, value: @child.user_id
+        .form-actions
+          = f.submit "save", class: :button
+
+
+
+

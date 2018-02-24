@@ -1,0 +1,37 @@
+.row
+  .large-2.left.columns
+    %h1
+      = link_to image_tag("loveandlaughter/logo.png", :border => 0, height: '10px'), static_pages_home_path, {:class => 'dock-item'}
+  .large-10.columns
+    %ul.button-group
+      %li= link_to "Testimonials", testimonials_path, class: :button
+      %li= link_to "Contact Us ", contacts_path, class: :button
+      -#%li= link_to "Register your kid", new_kid_path, class: :button
+      %li= link_to "Photo Gallery", photos_path, class: :button
+      %li= link_to "Videos", videos_path, class: :button
+      %li= link_to "Schedule", static_pages_schedule_path, class: :button
+      - if current_user
+        %a.button.dropdown(href="" data-dropdown="drop")
+          = truncate(current_user.email, length: 10, omission: '.')
+        %ul#drop.f-dropdown(data-dropdown-content)
+          %li= link_to 'Edit Profile', edit_user_path(current_user)
+          %li= link_to 'Change Email / Password', edit_user_registration_path
+          %li= link_to 'Logout', destroy_user_session_path
+      - else
+        %li
+          = link_to 'Log in', new_user_session_path, class: :button
+    %ul.button-group
+      - if current_user && current_user.admin?
+        %li= link_to 'Browse Parents', users_path, class: :button
+        %li= link_to 'Browse Children', children_path, class: :button
+        %li= link_to 'Message to Parents', new_user_message_path(current_user), class: :button
+      -#- if current_user && current_user.children.first.nil?
+      -#  - current_user.children.each do |c|
+      -#    %li= link_to "#{c.first_name}'s Profile", child_path(c.id), class: :button
+    - if current_user && current_user.confirmed?
+      - if current_user.children.first.nil?
+        = link_to 'Add your child profile', new_user_children_path(current_user), class: :button
+      - elsif current_user.children.first.persisted?
+        = link_to "Edit #{current_user.children.first.first_name}'s profile", edit_child_path(current_user.children.first), class: :button
+        = link_to "#{current_user.children.first.first_name}'s profile", child_path(current_user.children.first), class: :button
+

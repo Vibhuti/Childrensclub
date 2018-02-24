@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Public:
+  = @video.public
+%p
+  %b Youtube video:
+  = @video.youtube_video
+
+= link_to 'Edit', edit_video_path(@video)
+\|
+= link_to 'Back', videos_path

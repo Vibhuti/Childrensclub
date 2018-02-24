@@ -1,0 +1,10 @@
+.row
+  .large-9.columns
+    %h1 Edit User Profile
+    = simple_form_for @user, :validate => true, :html => {:multipart => true} do |f|
+      = f.input :name
+      = f.input :email
+      - if current_user.admin?
+        = f.input :confirmed
+      = f.submit 'Save Changes', :class => 'button'
+    %br

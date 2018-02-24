@@ -1,0 +1,9 @@
+= simple_form_for(@video) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :public
+    = f.input :youtube_video
+
+  .form-actions
+    = f.submit "save", class: :button

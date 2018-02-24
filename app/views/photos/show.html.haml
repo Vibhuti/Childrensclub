@@ -1,0 +1,9 @@
+.row
+  .large-12.columns
+    %p#notice= notice
+
+    %p
+      %h1= @photo.name
+      = image_tag @photo.image_url.to_s
+    - if current_user && current_user.admin?
+      = link_to 'Edit', edit_photo_path(@photo)

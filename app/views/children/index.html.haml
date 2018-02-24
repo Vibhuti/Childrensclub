@@ -1,0 +1,20 @@
+- model_class= Child
+.container
+  .row
+    .page-header
+      %h1 Children
+    %table.table.table-striped
+      %thead
+        %tr
+          %th= model_class.human_attribute_name(:name)
+          %th= model_class.human_attribute_name(:parent_name)
+          %th= model_class.human_attribute_name(:age)
+          %th= model_class.human_attribute_name(:allergies)
+          %th= model_class.human_attribute_name(:action)
+      - Child.all.each do |child|
+        %tr
+          %td= link_to child.first_name, child_path(child)
+          %td= child.user.name
+          %td= child.age
+          %td= child.allergies
+          %td=link_to 'edit', edit_child_path(child)

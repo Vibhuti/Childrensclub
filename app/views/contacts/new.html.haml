@@ -1,0 +1,33 @@
+.row
+  .large-6.columns
+    %h3 Send a message to us
+    = simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f|
+      = f.input :name, :required => true
+      = f.input :email, :required => true
+      = f.input :message, :as => :text, :input_html => {:cols => 18, :rows => 10}, :required => true
+      -#.hidden
+      -#  = f.input :nickname, :hint => 'Leave this field blank!'
+      %div
+        = f.button :submit, 'Send message', :class=> "button"
+  / Contact Details
+  .large-6.columns
+    %p
+      We'd love to hear from you. If you have a specific question reach out to one of our staff. We love getting email all day.
+    = succeed "" do
+      Email us at:
+      %a{:href => "mailto:parryg@hotmail.com"} parryg@hotmail.com
+    %br
+    %br
+      %address Address:
+    899 Rubis Dr
+    Sunnyvale, CA 94087
+    %h6 Phone number:
+    %a{:href => "tel: 4086892125"} (408) 689 2125
+    %br
+    %br
+.row
+  .large-9.columns
+    .google-maps
+      %iframe{:frameborder => "0", :height => "450", :src => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6342.199463321413!2d-122.04617431585424!3d37.36381698893154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb6887e9c04e9%3A0x2c3c0a1fc322f081!2s899+Rubis+Dr%2C+Sunnyvale%2C+CA+94087!5e0!3m2!1sen!2sus!4v1418272039050", :style => "border:0", :width => "600"}
+
+%br

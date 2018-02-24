@@ -1,0 +1,14 @@
+.row
+  .large-12.columns
+    %h1 Sent Messages
+
+    %table
+      %tr
+        %th Name
+        %th Title
+        %th Content
+      - @messages.each do |message|
+        %tr
+          %td= message.name
+          %td= message.title
+          %td= message.content

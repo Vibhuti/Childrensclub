@@ -1,0 +1,20 @@
+- model_class= User
+.container
+  .row
+    .page-header
+      %h1 Parents
+    %table.table.table-striped
+      %thead
+        %tr
+          %th= model_class.human_attribute_name(:name)
+          %th= model_class.human_attribute_name(:confirmed)
+          %th= model_class.human_attribute_name(:email)
+          %th= model_class.human_attribute_name(:children)
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= link_to user.name, edit_user_path(user)
+            %td= user.confirmed ? 'Yes' : 'No'
+            %td= user.email
+            -if !user.children.nil?
+              %td= user.children.map(&:first_name).map(&:capitalize).join(", ")

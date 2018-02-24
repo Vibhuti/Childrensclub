@@ -1,0 +1,9 @@
+= simple_form_for(@testimonial) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :entry,  :as => :text, :input_html => {:rows => 10 }
+    -#= f.input :user_id
+
+  .form-actions
+    = f.submit "save", class: :button

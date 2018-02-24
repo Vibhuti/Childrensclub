@@ -1,0 +1,59 @@
+.google-maps {
+  position: relative;
+  padding-bottom: 75%; // This is the aspect ratio
+  height: 0;
+  overflow: hidden;
+}
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.headings {
+ font-family: 'Tangerine', serif;
+//       font-size: 48px;
+ }
+
+.background {
+  background: url(loveandlaughter/bg1.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.video {
+//  height: 360px;
+//  width: 100%;
+  background-color: black;
+  line-height: 25em;
+  text-align: center;
+}
+
+.video_text {
+  color: gray;
+  vertical-align: middle;
+  font-size: 25px;
+}
+
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+}

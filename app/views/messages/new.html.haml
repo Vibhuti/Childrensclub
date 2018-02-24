@@ -1,0 +1,15 @@
+.row
+  .large-12.cols
+    %h1 New message
+
+    = simple_form_for [@user, @message] do |f|
+      = f.error_notification
+
+      .form-inputs
+        = f.input :title
+        -#= f.input :content
+        -#= f.association :users
+
+        = f.input :content, :as => :ckeditor, :label => 'content', :input_html => { :toolbar => 'Basic', :style => 'width: 90%', :rows => 10 }
+      .form-actions
+        = f.submit "save", class: :button

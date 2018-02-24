@@ -1,0 +1,23 @@
+!!!
+/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+%head
+  %meta{:charset => "utf-8"}/
+  / Uncomment to make IE8 render like IE7
+  / <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  / Set the viewport width to device width for mobile
+  %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+  %meta(name="google-site-verification" content="-U07BwNdRv-cu2SVS1BuL46HWHLEPjUmvtvLpmWIop4")
+
+  %title= content_for?(:title) ? yield(:title) : "Love & Laughter Playschool"
+  %link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
+  = stylesheet_link_tag  "application"
+  %link{:href => "http://fonts.googleapis.com/css?family=Tangerine", :rel => "stylesheet", :type => "text/css"}/
+  = javascript_include_tag "vendor/custom.modernizr"
+  = csrf_meta_tags
+%body.background
+  = render 'layouts/header'
+  %br
+  = yield
+  = render 'layouts/footer'
+  = debug(params) if Rails.env.development?
+  = javascript_include_tag "application"

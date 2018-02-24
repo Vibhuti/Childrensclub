@@ -1,0 +1,14 @@
+.row
+  .container
+    %br
+    %br
+    - if @user && @user.admin?
+      = link_to 'New Video', new_video_path, class: :button
+    %h1 Listing videos
+    - @videos.each do |video|
+      .embed-container
+        %iframe{:allowfullscreen => '', :frameborder => '0', :height => '100', :src => "https://www.youtube.com/embed/#{embed video.youtube_video}", :width => '30%'}
+      - if @user && @user.admin?
+        = link_to 'Destroy', video, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: :button
+        = link_to 'Edit', edit_video_path(video), class: :button
+      %hr

@@ -1,0 +1,36 @@
+.row
+  .large-12.columns
+    %h1.headings.text-center Our Testimonials
+    %hr
+    = link_to 'New Testimonial', new_testimonial_path, class: :button
+    %p
+    - @testimonials.each do |testimonial|
+      = testimonial.entry
+      %br
+      %p.right ~ #{User.find(testimonial.user_id).name}
+      %hr
+        %hr
+    %p
+    Love and Laughter Daycare has been a part of our extended family for the last 5 years. When I needed to look for a daycare option for my older child, I visited several daycares but none of them compared to this particular daycare. I knew I made the right choice when my kid refused to come home with me in the evenings and wanted to continue playing there ! Neeta is always loving and affectionate with tke kids and I know my child will be cared for like he is at home. My older child is now in school but my younger one now goes to this daycare. There was no hesitation at all making the decision to send him here after the first one's experience. Though this is a home based daycare, it is a licensed facility and I am not apprehensive about any aspect of my child's safety or wellbeing. I am glad I chose this particular home based daycare over a bigger facility where my kid may have been lost in the crowd.
+    %br
+    %p.right ~Deepa
+    %hr
+
+    %p
+    My son Arthur has been coming here since he was 11 months old and he is now two. Very happy with the love and care that he has received here. It is a great family atmosphere and very different from the other places that are run as a business. I would definitely recommend love and laughter daycare to all.
+    %br
+    %p.right Dinesh K.
+
+    %hr
+    %p
+    Neeta's child care center is a great place for babies as well as kids of all ages.
+    i have been sending my younger daughter since she was 4 months old. and i am very happy with the way she handles the new child. she includes other fun activities like poems, coloring, art work etc.
+    My elder daughter also used to go to the Neeta's child care since she was 12 months. i did not know about her earlier otherwise i would have not send her to anyother place.
+    Neeta is certified child care provider.
+    %br
+    %p.right ~rk k
+    %hr
+    %p
+    My 18 month old used to go to this daycare before i lost my job. The lady Neeta is very experienced and very patient. My child ia a very fussy eatest but Neeta will make sure that kids eat well in the daycare. The place s clean. They spend lot of time outside including going around the block or to the park in their buggy. At the end of the day my kid was always well fed and well rested. Also he learnt so many rhymes at the daycare.
+  %br
+    %p.right ~rajasri e

@@ -1,0 +1,16 @@
+.row
+  .large-12.columns
+    - if current_user && current_user.admin?
+      = link_to 'New Photo', new_photo_path, class: :button
+    %br
+    %br
+    %ul.transitions-enabled.clearfix.large-block-grid-3
+      - @photos.each do |photo|
+        %li
+          = link_to image_tag(photo.image_url.to_s), photo
+          .name= photo.name
+          .actions
+            - if current_user && current_user.admin?
+              = link_to "edit", edit_photo_path(photo)
+              |
+              \#{link_to "remove", photo, :confirm => 'Are you sure?', :method => :delete}

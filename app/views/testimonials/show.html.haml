@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Entry:
+  = @testimonial.entry
+%p
+  %b User:
+  = @testimonial.user_id
+
+= link_to 'Edit', edit_testimonial_path(@testimonial)
+\|
+= link_to 'Back', testimonials_path
